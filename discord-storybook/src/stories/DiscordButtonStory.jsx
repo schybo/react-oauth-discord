@@ -7,7 +7,11 @@ import './discordButtonStory.css'
 
 const DISCORD_BASE_OAUTH_URL = 'https://discord.com/api/oauth2/authorize'
 
-const DiscordLogin = ({
+const DISCORD_CLIENT_ID = '1077903194962796556'
+const DISCORD_REDIRECT_URI =
+  'http://localhost:8910/.redwood/functions/discordAuth'
+
+export const DiscordLogin = ({
   discordClientId,
   redirectUri,
   responseType = 'code',
@@ -35,7 +39,6 @@ const DiscordLogin = ({
   if (debug) {
     console.log(`Final URL: ${url}}`)
   }
-  console.log('Final URL')
 
   /* box-shadow: none;
     border-color: #d2e3fc;
@@ -76,8 +79,6 @@ const DiscordLogin = ({
   )
 }
 
-// export default DiscordLogin
-
 /**
  * Primary UI component for user interaction
  */
@@ -88,25 +89,14 @@ export const DiscordButtonStory = ({
   label,
   ...props
 }) => {
-  const mode = primary
-    ? 'storybook-button--primary'
-    : 'storybook-button--secondary'
-  // return <DiscordLogin></DiscordLogin>
   return (
-    <p>
-      <DiscordLogin></DiscordLogin>
-    </p>
+    <DiscordLogin
+      discordClientId={DISCORD_CLIENT_ID}
+      redirectUri={DISCORD_REDIRECT_URI}
+      debug={true}
+      props={props}
+    ></DiscordLogin>
   )
-  // return (
-  //   <button
-  //     type="button"
-  //     className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-  //     style={backgroundColor && { backgroundColor }}
-  //     {...props}
-  //   >
-  //     {label}
-  //   </button>
-  // );
 }
 
 DiscordButtonStory.propTypes = {
