@@ -1,10 +1,10 @@
 {
   "name": "@schybo-quizzing/react-oauth-discord",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "OAuth2 Enabled Button for Discord Login",
   "private": false,
-  "main": "dist/DiscordButtonStory.js",
-  "module": "dist/DiscordButtonStory.js",
+  "main": "dist/DiscordButton.js",
+  "module": "dist/DiscordButton.js",
   "files": [
     "dist",
     "README.md"

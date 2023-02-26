@@ -13,7 +13,7 @@ require("core-js/modules/es.regexp.exec.js");
 require("core-js/modules/es.string.search.js");
 var _react = _interopRequireDefault(require("react"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
-require("./discordButtonStory.css");
+require("./discordButton.css");
 const _excluded = ["discordClientId", "redirectUri", "responseType", "scopes", "debug", "primary", "backgroundColor", "size", "label"],
   _excluded2 = ["primary", "backgroundColor", "size", "label"];
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }

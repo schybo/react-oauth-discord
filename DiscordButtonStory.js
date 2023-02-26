@@ -1,6 +1,4 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import './discordButtonStory.css'
+import './discordButton.css'
 
 // Example DISCORD_WEB_URL
 // https://discord.com/api/oauth2/authorize?client_id=1077903194962796556&redirect_uri=http%3A%2F%2Flocalhost%3A8910%2F.redwood%2Ffunctions%2FdiscordAuth&response_type=code&scope=identify%20email
@@ -40,10 +38,6 @@ export const DiscordLogin = ({
     console.log(`Final URL: ${url}}`)
   }
 
-  /* box-shadow: none;
-    border-color: #d2e3fc;
-    outline: none; hover */
-
   const mode = primary ? 'discord-button--primary' : 'discord-button--secondary'
 
   return (
@@ -77,54 +71,4 @@ export const DiscordLogin = ({
       </button>
     </a>
   )
-}
-
-/**
- * Primary UI component for user interaction
- */
-export const DiscordButtonStory = ({
-  primary,
-  backgroundColor,
-  size,
-  label,
-  ...props
-}) => {
-  return (
-    <DiscordLogin
-      discordClientId={DISCORD_CLIENT_ID}
-      redirectUri={DISCORD_REDIRECT_URI}
-      debug={true}
-      props={props}
-    ></DiscordLogin>
-  )
-}
-
-DiscordButtonStory.propTypes = {
-  /**
-   * Is this the principal call to action on the page?
-   */
-  primary: PropTypes.bool,
-  /**
-   * What background color to use
-   */
-  backgroundColor: PropTypes.string,
-  /**
-   * How large should the button be?
-   */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-  /**
-   * Button contents
-   */
-  label: PropTypes.string.isRequired,
-  /**
-   * Optional click handler
-   */
-  onClick: PropTypes.func,
-}
-
-DiscordButtonStory.defaultProps = {
-  backgroundColor: null,
-  primary: false,
-  size: 'medium',
-  onClick: undefined,
 }
