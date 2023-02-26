@@ -1,10 +1,17 @@
 {
   "name": "@schybo-quizzing/react-oauth-discord",
-  "version": "1.0.1",
+  "version": "1.0.6",
   "description": "OAuth2 Enabled Button for Discord Login",
-  "main": "index.js",
+  "private": false,
+  "main": "dist/DiscordButtonStory.js",
+  "module": "dist/DiscordButtonStory.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf dist && NODE_ENV=production babel ./discord-storybook/src/stories --out-dir dist --copy-files"
   },
   "repository": {
     "type": "git",
@@ -22,6 +29,13 @@
     "url": "https://github.com/schybo/react-oauth-discord/issues"
   },
   "homepage": "https://github.com/schybo/react-oauth-discord#readme",
-  "devDependencies": {},
-  "dependencies": {}
+  "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.0",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1"
+  }
 }

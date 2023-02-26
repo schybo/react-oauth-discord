@@ -1,11 +1,60 @@
 # react-oauth-discord
 
-react-oauth-discord
-
-Note: You can't name with @ as it creates a scope
+# Usage
 
 ```
-To combat against this problem, npm lets you publish to a scope. This means you can publish the package under your own username (or npm organization), so you’re free from naming problems.
+/**
+ * Primary UI component for user interaction
+ */
+export const DiscordButtonStory = ({
+  discordClientId,
+  redirectUri,
+  responseType = 'code',
+  scopes = ['identify', 'email'],
+  debug = false,
+  primary,
+  backgroundColor,
+  size,
+  label,
+  ...props
+}) => {
+  return (
+    <DiscordLogin
+      discordClientId={DISCORD_CLIENT_ID}
+      redirectUri={DISCORD_REDIRECT_URI}
+      debug={true}
+      props={props}
+    ></DiscordLogin>
+  )
+}
 
-To publish to a scope, you can either:
+DiscordButtonStory.propTypes = {
+  /**
+   * Is this the principal call to action on the page?
+   */
+  primary: PropTypes.bool,
+  /**
+   * What background color to use
+   */
+  backgroundColor: PropTypes.string,
+  /**
+   * How large should the button be?
+   */
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  /**
+   * Button contents
+   */
+  label: PropTypes.string.isRequired,
+  /**
+   * Optional click handler
+   */
+  onClick: PropTypes.func,
+}
+
+DiscordButtonStory.defaultProps = {
+  backgroundColor: null,
+  primary: false,
+  size: 'medium',
+  onClick: undefined,
+}
 ```
