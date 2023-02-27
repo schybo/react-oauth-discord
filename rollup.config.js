@@ -1,4 +1,5 @@
 import babel from '@rollup/plugin-babel'
+import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import replace from '@rollup/plugin-replace'
@@ -7,17 +8,30 @@ import postcss from 'rollup-plugin-postcss'
 
 export default {
   input: 'index.js',
-  output: {
-    file: 'dist/DiscordButton.js',
-    format: 'umd',
-    name: 'app',
-    inlineDynamicImports: true,
-  },
+  output: [
+    {
+      file: 'dist/DiscordButton.umd.js',
+      format: 'umd',
+      name: 'app',
+      inlineDynamicImports: true,
+    },
+    {
+      file: 'dist/DiscordButton.js',
+      format: 'cjs',
+      inlineDynamicImports: true,
+    },
+    {
+      file: 'dist/DiscordButton.esm.js',
+      format: 'esm',
+      inlineDynamicImports: true,
+    },
+  ],
   plugins: [
     image(),
     postcss({
       extensions: ['.css'],
     }),
+    peerDepsExternal(),
     nodeResolve({
       extensions: ['.js'],
     }),
@@ -27,6 +41,8 @@ export default {
     babel({
       presets: ['@babel/preset-react'],
     }),
-    commonjs(),
+    commonjs({
+      include: 'node_modules/**',
+    }),
   ],
 }

@@ -1,6 +1,4 @@
-'use strict';
-
-var React = require('react');
+import React from 'react';
 
 function _extends() {
   _extends = Object.assign ? Object.assign.bind() : function (target) {
@@ -555,4 +553,4 @@ const DiscordLogin = _ref => {
   }))), /*#__PURE__*/React.createElement("span", null, label && label != '' ? label : 'Sign in with Discord'));
 };
 
-exports.DiscordLogin = DiscordLogin;
+export { DiscordLogin };
