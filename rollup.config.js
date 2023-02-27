@@ -26,12 +26,16 @@ export default {
       inlineDynamicImports: true,
     },
   ],
+  external: ['@babel/polyfill', 'react', 'react-dom'],
   plugins: [
     image(),
     postcss({
       extensions: ['.css'],
     }),
     peerDepsExternal(),
+    commonjs({
+      include: 'node_modules/**',
+    }),
     nodeResolve({
       extensions: ['.js'],
     }),
@@ -40,9 +44,6 @@ export default {
     }),
     babel({
       presets: ['@babel/preset-react'],
-    }),
-    commonjs({
-      include: 'node_modules/**',
     }),
   ],
 }
