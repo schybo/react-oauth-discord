@@ -1,9 +1,10 @@
 {
   "name": "@schybo-quizzing/react-oauth-discord",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "OAuth2 Enabled Button for Discord Login",
   "private": false,
   "main": "dist/DiscordButton.js",
+  "type": "module",
   "module": "dist/DiscordButton.js",
   "files": [
     "dist",
@@ -11,7 +12,8 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf dist && NODE_ENV=production babel ./discord-storybook/src/stories --out-dir dist --copy-files"
+    "build": "rm -rf dist && NODE_ENV=production babel ./discord-storybook/src/stories --out-dir dist --copy-files",
+    "build-rollup": "rollup -c"
   },
   "repository": {
     "type": "git",
@@ -21,7 +23,17 @@
     "discord",
     "react",
     "oauth",
-    "login"
+    "login",
+    "reactjs",
+    "react-component",
+    "react-oauth-discord",
+    "react-discord-login",
+    "react-social-login",
+    "react-oauth",
+    "react-login",
+    "discord-login",
+    "discord-oAuth2",
+    "discord-oAuth"
   ],
   "author": "Brent Scheibelhut",
   "license": "ISC",
@@ -33,7 +45,19 @@
     "@babel/cli": "^7.21.0",
     "@babel/core": "^7.21.0",
     "@babel/preset-env": "^7.20.2",
-    "@babel/preset-react": "^7.18.6"
+    "@babel/preset-react": "^7.18.6",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-image": "^3.0.2",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-replace": "^5.0.2",
+    "postcss": "^8.4.21",
+    "rollup": "^3.17.3",
+    "rollup-plugin-postcss": "^4.0.2"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1"
