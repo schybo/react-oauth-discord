@@ -5,33 +5,32 @@ import commonjs from '@rollup/plugin-commonjs'
 import replace from '@rollup/plugin-replace'
 import image from '@rollup/plugin-image'
 import postcss from 'rollup-plugin-postcss'
+import packageJson from './package.json'
 
 export default {
   input: 'index.js',
   output: [
+    // {
+    //   file: packageJson.main,
+    //   format: 'umd',
+    //   name: 'app',
+    //   inlineDynamicImports: true,
+    // },
     {
-      file: 'dist/DiscordButton.umd.js',
-      format: 'umd',
-      name: 'app',
-      inlineDynamicImports: true,
-    },
-    {
-      file: 'dist/DiscordButton.js',
+      file: packageJson.main,
       format: 'cjs',
-      inlineDynamicImports: true,
+      sourcemap: true,
     },
     {
-      file: 'dist/DiscordButton.esm.js',
+      file: packageJson.module,
       format: 'esm',
-      inlineDynamicImports: true,
+      sourcemap: true,
     },
   ],
-  external: ['@babel/polyfill', 'react', 'react-dom'],
+  external: Object.keys(packageJson.dependencies || {}).concat(
+    Object.keys(packageJson.peerDependencies || {})
+  ),
   plugins: [
-    image(),
-    postcss({
-      extensions: ['.css'],
-    }),
     peerDepsExternal(),
     commonjs({
       include: 'node_modules/**',
@@ -40,10 +39,15 @@ export default {
       extensions: ['.js'],
     }),
     replace({
-      'process.env.NODE_ENV': JSON.stringify('development'),
+      'process.env.NODE_ENV': JSON.stringify('production'),
     }),
     babel({
-      presets: ['@babel/preset-react'],
+      exclude: 'node_modules/**',
+      babelHelpers: 'bundled',
+    }),
+    image(),
+    postcss({
+      extensions: ['.css'],
     }),
   ],
 }
