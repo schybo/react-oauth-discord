@@ -19,7 +19,7 @@ $ yarn add @schybo-quizzing/react-oauth-discord@latest
 
 ## Demo & How to use to fetch user details
 
-https://react-oauth.vercel.app/
+[Storybook](https://64007c7a93526a71257d3189--admirable-zabaione-6cec50.netlify.app/?path=/story/example-discordbutton--large&args=size:medium)
 
 ## User authorization for Discord APIs (with custom button)
 

@@ -62,5 +62,7 @@
     "chromatic": "^6.17.1",
     "prop-types": "^15.8.1",
     "webpack": "^5.75.0"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "discord-storybook@0.1.0"
 }
