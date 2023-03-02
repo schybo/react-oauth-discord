@@ -1,3 +1,7 @@
+// Error: Cannot find module '../internals/global'
+// Require stack:
+// at Object.<anonymous> (/Users/brentscheibelhut/schyboardy/node_modules/@schybo-quizzing/react-oauth-discord/discord-storybook/node_modules/core-js/modules/web.dom-collections.iterator.js:1:14)
+// https://github.com/zloirock/core-js/issues/500
 {
   "presets": [
     [
