@@ -17,6 +17,7 @@ export const DiscordLogin = ({
   label,
   onClick,
   newTab = false,
+  buttonClasses,
   ...props
 }) => {
   const params = new URLSearchParams({
@@ -46,7 +47,7 @@ export const DiscordLogin = ({
     <button
       type="button"
       onClick={onClick || defaultOnClick}
-      className={['discord-button', `discord-button--${size}`].join(' ')}
+      className={`discord-button discord-button--${size} ${buttonClasses}`}
       style={backgroundColor && { backgroundColor }}
       {...props}
     >

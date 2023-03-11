@@ -59,7 +59,7 @@ function styleInject(css, ref) {
 var css_248z = ".discord-button {\n  transition: all 0.218s;\n  background-color: #fff;\n  background-image: none;\n  border: 1px solid #dadce0;\n  border-radius: 4px;\n  color: #3c4043;\n  cursor: pointer;\n  text-decoration: none;\n  font-family: 'Google Sans', arial, sans-serif;\n  font-size: 12px;\n  height: 40px;\n  letter-spacing: 0.25px;\n  outline: none;\n  overflow: hidden;\n  padding: 0 12px;\n  position: relative;\n  text-align: center;\n  vertical-align: middle;\n  white-space: nowrap;\n  width: auto;\n  display: flex;\n  align-items: center;\n  flex-direction: row;\n  justify-content: space-between;\n  flex-wrap: nowrap;\n}\n\n.discord-button:hover {\n  box-shadow: none;\n  border-color: #d2e3fc;\n  background-color: rgba(66, 133, 244, 0.04);\n  outline: none;\n  transition: all 0.218s;\n}\n\n.discord-button--small {\n  font-size: 12px;\n  padding: 0 16px;\n}\n.discord-button--medium {\n  font-size: 14px;\n  padding: 0 20px;\n}\n.discord-button--large {\n  font-size: 16px;\n  padding: 0 24px;\n}\n";
 styleInject(css_248z);
 
-const _excluded = ["discordClientId", "redirectUri", "responseType", "scopes", "debug", "backgroundColor", "size", "label", "onClick", "newTab"];
+const _excluded = ["discordClientId", "redirectUri", "responseType", "scopes", "debug", "backgroundColor", "size", "label", "onClick", "newTab", "buttonClasses"];
 
 // Example DISCORD_WEB_URL
 // https://discord.com/api/oauth2/authorize?client_id=1077903194962796556&redirect_uri=http%3A%2F%2Flocalhost%3A8910%2F.redwood%2Ffunctions%2FdiscordAuth&response_type=code&scope=identify%20email
@@ -76,7 +76,8 @@ const DiscordLogin = _ref => {
       size,
       label,
       onClick,
-      newTab = false
+      newTab = false,
+      buttonClasses
     } = _ref,
     props = _objectWithoutPropertiesLoose(_ref, _excluded);
   const params = new URLSearchParams({
@@ -101,7 +102,7 @@ const DiscordLogin = _ref => {
   return /*#__PURE__*/React.createElement("button", _extends({
     type: "button",
     onClick: onClick || defaultOnClick,
-    className: ['discord-button', "discord-button--" + size].join(' '),
+    className: "discord-button discord-button--" + size + " " + buttonClasses,
     style: backgroundColor && {
       backgroundColor
     }

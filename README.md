@@ -93,6 +93,7 @@ const login = () => {
 |          | responseType    | `string`                       | Response type wanted from Discord oAuth. Default: `code`                                                     |
 |          | newTab          | `boolean`                      | Whether to open the oAuth box in a new tab                                                                   |
 |          | onclick         | `function`                     | Optional click handler                                                                                       |
+|          | buttonClasses   | `string`                       | Optional extra classes to apply to the button                                                                |
 |          | props           | `JSON`                         | Optional extra props                                                                                         |
 |          |
 
